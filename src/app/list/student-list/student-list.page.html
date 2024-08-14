@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Estudiantes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let student of students">
+      <ion-label>
+        <h2>{{ student.nombre }} {{ student.apellido }}</h2>
+        <p>Carrera: {{ student.carrera }}</p>
+        <p>Correo: {{ student.email }}</p>
+        <p>Fecha de Creación: {{ student.creationDate | date }}</p>
+        <p>Estatus: {{ student.status }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón flotante para registrar un nuevo estudiante -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/student-register']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
